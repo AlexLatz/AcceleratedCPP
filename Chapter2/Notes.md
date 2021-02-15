@@ -1,0 +1,18 @@
+# Chapter 2
+- While loops (as in Java)
+    - increment is done with the operator first (++i)
+- boolean in Java = bool in C++
+- Strings have a specific type for size: std::string::size_type (unsigned)
+- ints are at least 32767 and signed
+- if statements, || and &&, == order of operations are the same
+- Repeated std:: is annoying, use `using std::cout;` to use cout
+- for loops are similar, except preincrement is the style
+- Types
+    - bool: true or false
+    - unsigned: int with only non negatives
+    - short: int with at least 16 bits
+    - long: int with at least 32 bits
+    - size_t: unsigned type that holds any object's size
+    - string::size_type: unsigned string size
+- Using directives
+    - using namespace-name::name; namespace-name::name == name
