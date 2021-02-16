@@ -1,0 +1,21 @@
+# Chapter 3
+
+- cin can be applied to multiple variables ex. `cin >> name >> name2;`
+    - Can use a loop as cin returns a boolean value on success or incorrect typing
+    - Can also use `if (cin)` to check the success of the last operation
+    - cin returns false when reaching the end-of-line (Ctrl-Z windows, Ctrl-D others)
+- Local variables not initialized are "undefined" (c++ normally doesn't check for this)
+    - Can lead to errors if the undefined variable isn't overwritten before use
+- type streamsize returned by cout.precision(), indicates number of decimal places
+    - Can set the precision by `cout << setprecision(int places);`
+- vector<> is the equivalent of a List<> in Java
+    - ex. `vector<int>` because primitives can be used
+    - vector.push_back() pushes a value to the back of the vector
+    - vector<int>::size_type = size type for int vector
+    - Can redefine it with `typedef vector<int>::size_type vec_sz`
+    - vector.size() returns the size as a size_type
+    - Can index into the vector with normal bracket syntax
+    - They don't check for out of range indices, which can lead to errors
+- <algorithm> header contains useful algorithms like sort(vectorelement beg, vectorelement end)
+    - sort rearranges the vector to increasing in place across the two positions
+    - Can get beginning and end with vector.begin() and vector.end() 
