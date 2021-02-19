@@ -6,9 +6,10 @@
 void quartiles();
 void wordCount();
 void longShort();
+void multiGrades();
 int main()
 {
-    longShort();
+    multiGrades();
 }
 void quartiles()
 {
@@ -63,4 +64,30 @@ void longShort()
     }
     sort(lengths.begin(), lengths.end());
     std::cout << "Longest word: " << lengths.back() << ", Shortest word: " << lengths.front() << std::endl;
+}
+void multiGrades()
+{
+    std::vector<std::string> names;
+    std::vector<int> grades;
+    std::cout << "Enter student name: ";
+    std::string name;
+    while (std::cin >> name)
+    {
+        names.push_back(name);
+        grades.push_back(0);
+        int numGrades = 0;
+        int grade;
+        std::cout << "Enter grades, -1 ends: ";
+        while (std::cin >> grade && grade > 0)
+        {
+            grades[grades.size()-1] += grade;
+            numGrades++;
+        }
+        if (numGrades > 0) grades[grades.size()-1] /= numGrades;
+        std::cout << "Enter student name: ";
+    }
+    for (int i = 0; i < names.size(); i++)
+    {
+        std::cout << std::endl << names[i] << ": " << grades[i] << std::endl;
+    }
 }
