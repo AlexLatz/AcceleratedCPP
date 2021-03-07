@@ -24,3 +24,12 @@
 - The sort function with structs
     - Requires a predicate, a bool returning function that takes 2 structs
 - max function requires the two types to be the same
+- header files: declaring which functions can be accessed
+    - .h or .hpp, and imported with `#include "test.h"`
+    - quotes in the include line copy the contents of the header
+    - header functions have function declarations - ; not {}
+    - using in the header file will bring it over to code
+        - should be avoided generally
+    - #ifndef VARNAME checks if variable is defined
+    - this followed by #endif will prevent multiple imports
+- 
