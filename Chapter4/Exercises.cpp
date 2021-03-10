@@ -1,4 +1,5 @@
 #include "Exercises.h"
+#include <iomanip>
 
 int main()
 {
@@ -10,7 +11,7 @@ void square100s()
 {
     for (int i = 1; i <= 100; i++)
     {
-        std::cout << i << setw(5) << i*i << std::endl;
+        std::cout << i << std::setw(5) << i*i << std::endl;
     }
 }
 

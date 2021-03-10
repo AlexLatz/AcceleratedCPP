@@ -1,0 +1,48 @@
+# Chapter 5
+
+- Removing elements from vectors - erase() method takes O(n) time bc it has to shift
+    - the erase function takes an iterator
+    - returns an iterator on the next element, invalidates all previous iterators
+    - Can increase the iterator by adding a number to it
+        - ONLY if the container supports random-access indexing, otherwise + would be undefined
+- Iterators - sequential access to data in an efficient way
+    - Every standard container has two iterator types: const_iterator and iterator
+    - iterator allows read-write, const only allows reading
+    - You can choose between by assigning the iterator to const or not
+        - iterator shrinks to const_iterator if necessary
+    - vector.begin() returns an iterator starting at the beginning
+    - vector.end() returns an iterator one past the end (useful for stopping it in a loop)
+    - the increment and decrement operators are overloaded for iterators (next or prev element)
+    - Are invalidated depending on the container type
+        - Vectors invalidate with adding or deleting elements
+        - Lists do not invalidate with erase or adding elements
+- The dereference operator * is used to get a result out of a reference - like in iterators
+    - Most operators take precedence over *, so parentheses usually needed to work in tandem
+- Extra syntactic sugar - to dereference and fetch a instance var, -> is used (lambda) 
+    - ex. `(*iter).name` or `iter->name`
+- List type: optimized for fast insertion and deletion
+    - slower than vectors for sequential access
+    - DO NOT support random access
+    - Because they lack random access, the sort() method doesn't work on them
+        - Instead use list.sort(compare) - if compare is the boolean comparator
+- Strings provide an iterator - similar to vectors
+    - Can be indexed with [], have a size() function
+    - isspace() taken from the c import cctype
+    - s.substr(i,j) is like Java - takes substring of [i,j)
+- getline(istream in, string s) takes a line of input and stores it in string s
+- Appending two vectors - vec.insert(iterator insertAt, iterator startFrom, iterator endFrom)
+- Containers reference
+    - container<T>::iterator - iterator type
+    - container<T>::const_iterator - read-only iterator
+    - c.begin(), c.end() - forwards iterators referencing the first and one past the end element
+    - c.rbegin(), c.rend() - reverse order of above
+    - container<T> c(c2) - copy constructor
+    - container<T> c(n) - container with n elements initialized to T's default
+    - container<T> c(n, t) - container with n elements of t
+    - container<T> c(b, e) - container with elements between the two iterators b, e
+    - c = c2 replaces c with a copy of c2
+    - c.empty() = java isempty
+    - c.insert(d, b, e) copies from iterators [b, e) and inserts before d
+- Iterators reference
+    - *it - dereferences it to obtain the value (must use parenthesis to get instance vars)
+    - it->val - equals (*it).val for quickly getting instance vars
