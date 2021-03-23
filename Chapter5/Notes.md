@@ -16,8 +16,8 @@
     - Are invalidated depending on the container type
         - Vectors invalidate with adding or deleting elements
         - Lists do not invalidate with erase or adding elements
-- The dereference operator * is used to get a result out of a reference - like in iterators
-    - Most operators take precedence over *, so parentheses usually needed to work in tandem
+- The dereference operator \* is used to get a result out of a reference - like in iterators
+    - Most operators take precedence over \*, so parentheses usually needed to work in tandem
 - Extra syntactic sugar - to dereference and fetch a instance var, -> is used (lambda) 
     - ex. `(*iter).name` or `iter->name`
 - List type: optimized for fast insertion and deletion
@@ -44,5 +44,5 @@
     - c.empty() = java isempty
     - c.insert(d, b, e) copies from iterators [b, e) and inserts before d
 - Iterators reference
-    - *it - dereferences it to obtain the value (must use parenthesis to get instance vars)
+    - \*it - dereferences it to obtain the value (must use parenthesis to get instance vars)
     - it->val - equals (*it).val for quickly getting instance vars
