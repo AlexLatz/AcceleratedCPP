@@ -6,7 +6,7 @@
 
 int main()
 {
-    permutedIndex();
+    lowerThenUpper();
 }
 
 void permutedIndex()
@@ -26,6 +26,7 @@ bool compIndex(struct permutedIndex i1, struct permutedIndex i2)
 {
     return i1.rest < i2.rest;
 }
+
 std::vector<std::string> readLines()
 {
     std::vector<std::string> lines;
@@ -37,6 +38,7 @@ std::vector<std::string> readLines()
     }
     return lines;
 }
+
 void createIndicesFromLine(std::vector<struct permutedIndex>& result, std::string& line)
 {
     std::vector<std::string> words;
@@ -57,4 +59,66 @@ void createIndicesFromLine(std::vector<struct permutedIndex>& result, std::strin
         }
         result.push_back(index);
     }
+}
+
+std::vector<std::string> readInVector()
+{
+    std::vector<std::string> read;
+    while (std::cin) {
+        std::string s;
+        std::getline(std::cin, s);
+        read.push_back(s);
+    }
+    return read;
+}
+
+void printVector(const std::vector<std::string>& vec)
+{
+    for (std::string s : vec) {
+        std::cout << s << std::endl;
+    }
+}
+
+std::vector<std::string> center(const std::vector<std::string>& original)
+{
+    std::string::size_type maxlen;
+    for (std::string str : original) {
+        maxlen = std::max(maxlen, str.length()); 
+    }
+    std::vector<std::string> result;
+    for (std::string str : original) {
+        int num = (maxlen - str.length()) / 2;
+        std::string line;
+        std::string spaces = std::string(num, ' ');
+        line = spaces + str + spaces;
+        result.push_back(line);
+    }
+    return result;
+}
+
+void lowerThenUpper()
+{
+    std::cout << "Enter words: ";
+    std::vector<std::string> upper;
+    std::vector<std::string> lower;
+    while (std::cin) {
+        std::string s;
+        std::cin >> s;
+        if (isWordUpper(s)) upper.push_back(s);
+        else lower.push_back(s);
+    }
+    for (std::string s : lower) std::cout << s << ", ";
+    std::cout << std::endl;
+    for (std::string s : upper) std::cout << s << ", ";
+    std::cout << std::endl;
+}
+
+bool isWordUpper(const std::string& word)
+{
+    for (int i = 0; i < word.length(); i++) {
+        if (std::isupper(word[i])) {
+            return true;
+        }
+    }
+    return false;
 }
