@@ -16,3 +16,15 @@
 - find(iterator begin, iterator end, element e) - finds occurance of e
 - static elements - a storage class specifier
   - static elements are preserved across function calls, only initialized once
+- transform(iterator begin, iterator end, iterator\_adaptor insertfrom, fxn apply)
+  - Applies the function to each element and then attaches to insertfrom
+  - This doesn't work with overloaded functions, bc the compiler can't tell which
+  - They also can't handle exceptions in the function, so must be caught somewhere
+- function parameters - can pass a parameter that specifies a function
+  - ex. `void test(int function(int a));` takes in a int function that needs an int
+- \<numeric\> header - tools for numeric computations
+  - accumulate(iter begin, iter end, number sumstart)
+  - Adds all elements between to the sum (takes type of sumstart)
+- Algorithms act on container elements - NOT containers
+  - ex. remove will not remove elements from the container, instead copying to front
+  - You can then remove them with an erase call
