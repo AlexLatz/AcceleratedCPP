@@ -9,3 +9,4 @@ typedef std::map<std::string, std::vector<Rule> > Grammar;
 bool isCategory(std::string s);
 void readIn(Grammar& grammar);
 std::string parseCategory(Grammar& grammar, std::string category);
+Rule split(std::string line);
