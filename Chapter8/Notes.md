@@ -5,6 +5,7 @@
   - A single definition for a family of functions that behave differently
   - Before the function, declare a generic with template\<class T\>
   - Checks all arithmetic and other operators to make sure the input type is compatible
+  - To use a subtype use `typename T::size_type name;` when calling
 - The standard library specifies 5 iterator categories
   - Different iterators support different operations based on the container
   - Input iterators - supports increment, equality, and dereferencing
@@ -16,3 +17,6 @@
 - Streams and iterators - istream\_iterator and ostream\_iterator
   - Used to represent streams as iterators (can move around)
   - ex. istream\_iterator\<int\>(cin) is an int iterator off of cin
+  - can be used without parameters to indicate an end state (useful for loops)
+- To output to any number of containers - make a generic
+  - An output iterator can be incremented, dereferenced, and set

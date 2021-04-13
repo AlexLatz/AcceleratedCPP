@@ -2,7 +2,7 @@
 
 int main() 
 {
-    std::srand(std::time(0));
+    std::srand(time(0));
     Grammar grammar;
     readIn(grammar);
     while (true) 
@@ -25,6 +25,7 @@ std::string parseCategory(Grammar& grammar, std::string category)
 {
     std::vector<Rule> rules = grammar.at(category);
     Rule rule = rules[std::rand() % rules.size()];
+    rules.
     std::string words;
     for (std::string s : rule) {
         if (isCategory(s)) words += parseCategory(grammar, s);
