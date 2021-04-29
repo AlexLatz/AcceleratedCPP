@@ -1,0 +1,46 @@
+# Chapter 10
+
+- Managing memory is important in C++ - very low-level
+- Arrays - containers, much like in Java
+  - Part of the core language, fixed size at compile time
+  - No default size type, but size\_t generally used
+  - The name of an array equals a pointer to its first element
+  - Can add or subtract the pointer - get different elements
+    - The resultant is not guaranteed to be within array bounds
+    - Can use this to get a one-past-the-end iterator for library functions
+  - Indexing - `a[n] == *(a+n);` so you can random-access index easier
+  - Inline declaration - same as Java - `{1,1,1,1};
+  - To get length - `sizeof(arr)/sizeof(*arr)`
+- Pointers - a value that represents the address of an object
+  - Each object has a distinct address in memory
+  - If x is an object, &x is its address
+  - If p is a pointer, then *p is its object
+  - A pointer with value 0 is distinct and is used for empty pointers
+    - 0 is the only int that converts to a pointer type, null pointer
+  - Declarations - `int *p` or `int* p`
+    - IMPORTANT - `int* p, q` creates pointer p and int q
+  - Functions aren't objects - actually pointers when passed
+  - address operator is implicit - can only get address or call fxn
+    - ex `int (*fp)(int)` is a pointer fp that takes int, returns int
+    - translation: dereferencing fp with an int argument returns an int
+  - To get address of function: `&fxn` or `fxn`
+- String literals - a const char[] that ends with \0
+  - strlen(s) returns the characters not counting \0
+  - Can construct strings with `string s(arr)`
+    - or `string s(arr, arr + strlen(arr))` - two pointers at beg and end
+- Main args - argc is number, argv is pointer to the string literals
+  - dereferencing argv will return a char[] in string format
+- Alternate inputs and outputs - cerr, clog
+  - Cerr used for urgent errors, clog for logging
+  - ifstream and ofstream are file readers that act like streams
+    - To define a fstream, pass a pointer to a string literal array
+    - C++ strings aren't valid - must convert using `str.c_str()`
+- Memory management - don't leave hanging pointers to local vars
+  - Local variables are deallocated automatically after their scope is closed
+  - static allocation prevents this automatic deallocation
+  - `int* p = new T` allocates a pointer to object p of type T, the object stays
+    - Can be deleted with delete p, but must point to a created object or null
+  - After deleting, the pointer becomes invalid
+  - `new T[n]` creates an array, initializes each object with the default
+    - This wastes a lot of time, std has a way to dynamically allocate
+  - `delete[] arr` deletes an array if arr points to the first element
