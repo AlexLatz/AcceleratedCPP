@@ -1,20 +1,22 @@
 #include <list>
 #include <string>
+#include <iostream>
 
 class String_list {
     std::list<std::string> list;
     public:
-        String_list();
+    typedef std::list<std::string>::iterator iterator;
+    typedef size_t size_type;
         void add(std::string s) {
             list.push_back(s);
         }
-        auto iterator() {
+        iterator begin() {
             return list.begin();
         }
-        auto end() {
+        iterator end() {
             return list.end();
         }
-        std::list<std::string>::size_type size() {
+        size_type size() {
             return list.size();
         }
 };
